@@ -1,8 +1,6 @@
 const hoverElements = document.querySelectorAll('.hover')
 const hoverBox = document.getElementById('hover-box')
 const statBox = document.getElementById('stat-display')
-var left
-var width
 var firstEnter = true;
 
 // hoverElements.forEach(element => {
@@ -23,11 +21,7 @@ var firstEnter = true;
 // Instead, we use `mouseenter` and `mouseleave`, which do not bubble, and are only triggered when hovering over (or moving mouse out) the element to which the event is bound
 hoverElements.forEach(element => {
     element.addEventListener('mouseenter', event => {
-        left = event.target.offsetLeft
-        width = event.target.offsetWidth
-        hoverBox.style.opacity = 1
-        hoverBox.style.left = left + 'px'
-        hoverBox.style.width = width + 'px'
+        moveHoverBox(event)
         
         // Check if not the first time enter after mouse leaving 
         if (!firstEnter) {
@@ -41,8 +35,16 @@ hoverElements.forEach(element => {
 
 statBox.addEventListener('mouseleave', () => {
     hoverBox.style.opacity = 0
-    hoverBox.style.transition = 'unset'
+    hoverBox.style.transition = 'opacity 0.2s ease-in-out'
     // Remove the transition so that when the mouse leave the statBox at element A, when hover again, it won't show the effect that the hoverBox move from element A
     // to element B. Instead, the hoverBox just appear at element B.
     firstEnter = true;
 })
+
+function moveHoverBox(event) {
+    const left = event.target.offsetLeft
+    const width = event.target.offsetWidth
+    hoverBox.style.opacity = 1
+    hoverBox.style.left = left + 'px'
+    hoverBox.style.width = width + 'px'
+}
