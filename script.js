@@ -1,6 +1,7 @@
 const hoverElements = document.querySelectorAll('.hover')
 const hoverBox = document.getElementById('hover-box')
 const statBox = document.getElementById('stat-display')
+const libraryBox = document.getElementById('library')
 var firstEnter = true;
 
 // hoverElements.forEach(element => {
@@ -22,6 +23,8 @@ var firstEnter = true;
 hoverElements.forEach(element => {
     element.addEventListener('mouseenter', event => {
         moveHoverBox(event)
+        showInformation(event.target.getAttribute('id'))
+        libraryBox.style.opacity = 0
         
         // Check if not the first time enter after mouse leaving 
         if (!firstEnter) {
@@ -30,6 +33,11 @@ hoverElements.forEach(element => {
             firstEnter = false // If the first time, set firstEnter to false
             hoverBox.style.transition = 'opacity 0.2s ease-in-out' // Make the hover smooth (first time enter)
         }
+    })
+
+    element.addEventListener('mouseleave', event => {
+        hideInformation(event.target.getAttribute('id'))
+        libraryBox.style.opacity = 1
     })
 })
 
@@ -48,3 +56,40 @@ function moveHoverBox(event) {
     hoverBox.style.left = left + 'px'
     hoverBox.style.width = width + 'px'
 }
+
+function showInformation(id) {
+    element = document.getElementById(id + '-show')
+    element.style.opacity = 1
+}
+
+function hideInformation(id) {
+    element = document.getElementById(id + '-show')
+    element.style.opacity = 0
+}
+
+// Change the photos when click #next or #back
+document.addEventListener("DOMContentLoaded", () => {
+    var photos = document.querySelectorAll(".photo");
+    var currentIndex = 0;
+  
+    function changePhoto(index) {
+        photos.forEach((photo, i) => {
+            if (i === index) {
+                photo.classList.add("active");
+            } else {
+                photo.classList.remove("active");
+            }
+        });
+    }
+  
+    document.getElementById("next").addEventListener("click", () => {
+        currentIndex = (currentIndex + 1) % photos.length;
+        changePhoto(currentIndex);
+    });
+  
+    document.getElementById("back").addEventListener("click", () => {
+        currentIndex = (currentIndex - 1 + photos.length) % photos.length;
+        changePhoto(currentIndex);
+    });
+
+})

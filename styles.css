@@ -7,15 +7,15 @@ body {
     margin: 0;
     font-family: 'Poppins', sans-serif;
     line-height: 1.4;
+    background: url(img/boy-swimming.jpeg) center fixed;
 }
 
-#initial-screen {
-    /* position: fixed; */
+#wrapper {
+    position: fixed;
     top: 0;
     height: 100vh;
     width: 100%;
     padding: 10px;
-    background: url(img/boy-swimming.jpeg) center fixed;
     background-size: cover;
     display: grid;
     grid-template-columns: fit-content(100%) 1fr fit-content(100%);
@@ -30,13 +30,16 @@ body {
     margin: 1rem 2rem;
 }
 
+ul {
+    list-style: none;
+    padding-inline-start: 0;
+    margin: 0;
+}
+
 #stat-display ul {
     position: relative;
-    list-style: none;
-    display: flex;
-    padding-inline-start: 0;
+    display: flex;  
     z-index: 10;
-    margin: 0;
 }
 
 #stat-display li {
@@ -84,4 +87,131 @@ h1 {
     color: #fff;
     text-align: right;
     margin-right: 4rem;
+}
+
+#information {
+    position: relative;
+    grid-column: 2 / span 2;
+    grid-row: 2;
+    color: #ddd;
+}
+
+#information section {
+    position: absolute;
+    right: 0;
+    left: 20%;
+    margin: auto;
+    width: fit-content;
+    padding: 2rem;
+    border: 2px solid #fff;
+    background-color: #afafaf6c;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    min-width: 360px
+}
+
+#information h2 {
+    margin: 0;
+    font-size: 2rem;
+    width: 100%;
+}
+
+#information section p {
+    position: relative;
+    margin: 0;
+}
+
+/* #information section p::before {
+    display: block;
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background-color: #ddd;
+} */
+
+#information section p {
+    border-left: 2px solid #fff;
+}
+
+#time-show p {
+    padding: 1rem;
+}
+
+#medal-show p {
+    padding: 0.5rem 1rem;
+}
+
+@media (max-width: 1260px) {
+    #information h2 {
+        font-size: 1.7rem;
+    }
+
+    #information section {
+        padding: 1.5rem;
+    }
+}
+
+section#library {
+    width: 70%;
+    border: unset;
+    background-color: unset;
+    opacity: 1;
+    top: 15rem;
+    bottom: 0;
+}
+
+#photos {
+    position: relative;
+    width: 100%;
+    margin: 0 auto;
+}
+
+.photo {
+    opacity: 0;
+    width: 100%;
+    transition: opacity 1s ease-in-out;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+}
+  
+.photo.active {
+    opacity: 1;
+}
+
+button {
+    height: 6rem;
+    width: 6rem;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    display: block;
+    background-color: #18185351;
+    color: #eee;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+#back {
+    left: 0;
+}
+
+#next {
+    right: 0;
+}
+
+button:hover {
+    background-color: #1818539d;
+}
+
+button:focus {
+    outline-style: none;
 }

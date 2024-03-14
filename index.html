@@ -10,14 +10,14 @@
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins">
     </head>
     <body>
-        <div id="initial-screen">
+        <div id="wrapper">
             <div id="stat-display">
                 <ul>
-                    <li class="hover">
+                    <li id="time" class="hover">
                         <span class="stat-number">9</span> <span class="stat-unit">years</span>
                         <div class="stat-description">Semi-professional Swimmer</div>
                     </li>
-                    <li class="hover">
+                    <li id="medal" class="hover">
                         <span class="stat-number">3</span> <span class="stat-unit">medals</span>
                         <div class="stat-description">National-level</div>
                     </li>
@@ -26,6 +26,62 @@
             </div> 
             
             <h1>My Swimming Journey</h1>
+            
+            <div id="information">
+                <section id="time-show">
+                    <ul>
+                        <li>
+                            <h2>Know-how</h2>
+                            <p>Kindergarten</p>
+                        </li>
+                        <li>
+                            <h2>Semi-professional</h2>
+                            <p>June 2014</p>
+                        </li>
+                        <li>
+                            <h2>Career End</h2>
+                            <p>September 2023</p>
+                        </li>
+                    </ul>       
+                </section>
+
+                <section id="medal-show">
+                    <ul>
+                        <li>
+                            <h2>First District-level</h2>
+                            <p>December 2016</p>
+                            <p>1 Silver, 1 Bronze</p>
+                        </li>
+                        <li>
+                            <h2>First City-level</h2>
+                            <p>November 2018</p>
+                            <p>1 Gold</p>
+                        </li>
+                        <li>
+                            <h2>First National-level</h2>
+                            <p>July 2019</p>
+                            <p>1 Silver, 1 Bronze</p>
+                        </li>
+                        <li>
+                            <h2>Second National-level</h2>
+                            <p>June 2022</p>
+                            <p>1 Silver</p>
+                        </li>
+                    </ul> 
+                </section>
+
+                <section id="library">
+                    <div id="photos">
+                        <img class="photo active" src="img/lam-son-team-hue-2019.JPG">
+                        <img class="photo" src="img/lam-son-q5.JPG">
+                        <img class="photo" src="img/thsg-swimming-team.JPG">
+                        <img class="photo" src="img/district-level-2017.JPG">
+                        <img class="photo" src="img/national-level-danang.JPG">
+                        <button id="back">&larr;</button>
+                        <button id="next">&rarr;</button>
+                    </div>
+                </section>
+            </div>
         </div>
 
         <script src="script.js"></script>
