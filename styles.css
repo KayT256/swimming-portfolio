@@ -15,11 +15,10 @@ body {
     top: 0;
     height: 100vh;
     width: 100%;
-    padding: 10px;
     background-size: cover;
     display: grid;
-    grid-template-columns: fit-content(100%) 1fr fit-content(100%);
-    grid-template-rows: repeat(4, min-content) auto;
+    grid-template-columns: fit-content(100%) auto;
+    grid-template-rows: fit-content(100%) auto fit-content(100%);
 }
 
 #stat-display {
@@ -83,7 +82,7 @@ ul {
 h1 {
     font-weight: bold;
     font-size: 3rem;
-    grid-column: 2 / span 2;
+    grid-column: 2;
     color: #fff;
     text-align: right;
     margin-right: 4rem;
@@ -91,7 +90,7 @@ h1 {
 
 #information {
     position: relative;
-    grid-column: 2 / span 2;
+    grid-column: 2;
     grid-row: 2;
     color: #ddd;
 }
@@ -159,14 +158,19 @@ section#library {
     border: unset;
     background-color: unset;
     opacity: 1;
-    top: 15rem;
+    top: 0;
     bottom: 0;
 }
 
 #photos {
     position: relative;
     width: 100%;
-    margin: 0 auto;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
 }
 
 .photo {
@@ -225,6 +229,7 @@ button:focus {
     border: 2px solid #fff;
     background-image: linear-gradient(-135deg, #afafafb4, #afafaf3e);
     width: 70%;
+    height: fit-content;
 }
 
 #navbar h2 {
@@ -249,4 +254,80 @@ nav a:hover, nav a:active {
     font-weight: bolder;
     background-color: #7aabc964;
     border-color: #8bbaf8;
+}
+
+#footer {
+    position: relative;
+    z-index: 1;
+    grid-row: 3;
+    grid-column: 1 / span 2;
+    color: #fff;
+    text-align: center;
+    font-weight: bolder;
+    display: grid;
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+#footer::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(0deg, #0000009a, #00000000); /* Your desired background color */
+    z-index: -1; /* Ensures the background is behind the content */
+}
+
+#author {
+    grid-column: 2;
+}
+
+.author-name {
+    text-decoration: underline;
+}
+
+#platforms {
+    display: flex;
+}
+
+.platform {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 10rem;
+}
+
+a.platform {
+    font-weight: normal;
+    text-decoration: none;
+    color: #ddd;
+}
+
+a.platform:hover {
+    color: #fff;
+}
+
+svg {
+    width: 2rem;
+    height: 2rem;
+    background-color: #fff;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+#github-logo {
+    fill: #222;
+}
+
+a.platform:hover #github-logo {
+    fill: #000;
+}
+
+#linkedin-logo {
+    fill:#235797;
+}
+
+a.platform:hover #linkedin-logo {
+    fill: #2766b1;
 }
