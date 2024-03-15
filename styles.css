@@ -215,3 +215,38 @@ button:hover {
 button:focus {
     outline-style: none;
 }
+
+#navbar {
+    padding: 2rem;
+    grid-column: 1;
+    grid-row: 2;
+    color: #fff;
+    margin-left: 3rem;
+    border: 2px solid #fff;
+    background-image: linear-gradient(-135deg, #afafafb4, #afafaf3e);
+    width: 70%;
+}
+
+#navbar h2 {
+    margin: 0 0 1rem;
+}
+
+nav a {
+    display: block;
+    width: 80%;
+    text-decoration: none;
+    color: #eee;
+    line-height: 4;
+    border-left: 2px solid #fff;
+    padding-inline-start: 1rem;
+}
+
+nav:visited {
+    color: #eee;
+}
+
+nav a:hover, nav a:active {
+    font-weight: bolder;
+    background-color: #7aabc964;
+    border-color: #8bbaf8;
+}
