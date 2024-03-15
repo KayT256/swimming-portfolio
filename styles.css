@@ -71,7 +71,7 @@ ul {
     opacity: 0;
     top: 0;
     height: 100%;
-    background-color: #5f5f5f7a;
+    background-color: #72cfe07a;
     border-radius: 10px;
     transition: left 0.3s ease-in-out, width 0.3s ease-in-out;
 }
@@ -101,11 +101,11 @@ h1 {
     left: 20%;
     margin: auto;
     width: fit-content;
-    padding: 2rem;
+    padding: 1rem;
     border: 2px solid #fff;
     background-color: #afafaf6c;
     opacity: 0;
-    transition: opacity 0.5s ease-in-out;
+    /* transition: opacity 0.5s ease-in-out; */
     min-width: 360px
 }
 
@@ -146,10 +146,6 @@ h1 {
 @media (max-width: 1260px) {
     #information h2 {
         font-size: 1.7rem;
-    }
-
-    #information section {
-        padding: 1.5rem;
     }
 }
 
@@ -330,4 +326,75 @@ a.platform:hover #github-logo {
 
 a.platform:hover #linkedin-logo {
     fill: #2766b1;
+}
+
+@media (max-width: 900px) {
+    #wrapper {
+        height: auto;
+        position: static;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    #information section {
+        position: static;
+        border: 2px solid #fff;
+        background-color: #afafaf6c;
+        /* Set opacity: 1 !important to override inline style by the script  */
+        opacity: 1 !important; 
+        min-width: 360px;
+    }
+
+    #photos {
+        position: relative;
+        margin: auto;
+        height: 300px;
+        max-width: 360px;
+    }
+
+    .photo {
+        max-width: 360px;
+    }
+
+    h1 {
+        margin: 0;
+    }
+
+    #navbar {
+        margin: 1rem 0 0;
+    }
+
+    #information {
+        width: 100%
+    }
+
+    #footer {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 1rem 0 0;
+        padding: 1rem;
+    }
+
+    #information section {
+        opacity: 1;
+        margin: 2rem auto;
+    }
+
+    section#library {
+        border: unset;
+        background-color: unset;
+        opacity: 1;
+        height: fit-content;
+        margin: 0 auto;
+        padding: 0;
+    }
+}
+
+@media (max-width: 600px) {
+    h1 {
+        font-size: 2.5rem;
+    }
 }

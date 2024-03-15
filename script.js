@@ -22,10 +22,15 @@ var firstEnter = true;
 // Instead, we use `mouseenter` and `mouseleave`, which do not bubble, and are only triggered when hovering over (or moving mouse out) the element to which the event is bound
 hoverElements.forEach(element => {
     element.addEventListener('mouseenter', event => {
+        // moveHoverBox(event)
+        if (document.getElementsByTagName('body')[0].offsetWidth > 900) {
+            showInformation(event.target.getAttribute('id'))
+            libraryBox.style.opacity = 0
+        }
+        // If putting moveHoverBox(event) before the conditional (if), it will move the hoverBox first,
+        // but hasn't put the transition effect.
+        // Therefore, by putting moveHoverBox(event) like this, both (width, left) and transition will be added to the style at the same time
         moveHoverBox(event)
-        showInformation(event.target.getAttribute('id'))
-        libraryBox.style.opacity = 0
-        
         // Check if not the first time enter after mouse leaving 
         if (!firstEnter) {
             hoverBox.style.transition = 'left 0.3s ease-in-out, width 0.3s ease-in-out' // If not the first time, add the transition again after removing it at the event mouseleave
@@ -36,8 +41,10 @@ hoverElements.forEach(element => {
     })
 
     element.addEventListener('mouseleave', event => {
-        hideInformation(event.target.getAttribute('id'))
-        libraryBox.style.opacity = 1
+        if (document.getElementsByTagName('body')[0].offsetWidth > 900) {
+            hideInformation(event.target.getAttribute('id'))
+            libraryBox.style.opacity = 1
+        }
     })
 })
 
@@ -48,6 +55,22 @@ statBox.addEventListener('mouseleave', () => {
     // to element B. Instead, the hoverBox just appear at element B.
     firstEnter = true;
 })
+
+// Check if screen width is smaller than 900px initially
+if (window.matchMedia("(max-width: 900px)").matches) {
+    removeSectionTransition();
+} else {
+    addSectionTransition();
+}
+
+// Add an event listener to check for changes in screen width
+window.addEventListener("resize", function() {
+    if (window.matchMedia("(max-width: 900px)").matches) {
+        removeSectionTransition();
+    } else {
+        addSectionTransition();
+    }
+});
 
 function moveHoverBox(event) {
     const left = event.target.offsetLeft
@@ -65,6 +88,18 @@ function showInformation(id) {
 function hideInformation(id) {
     element = document.getElementById(id + '-show')
     element.style.opacity = 0
+}
+
+function addSectionTransition() {
+    document.querySelectorAll('#information section').forEach(section => {
+        section.style.transition = 'opacity 0.5s ease-in-out'
+    })
+}
+
+function removeSectionTransition() {
+    document.querySelectorAll('#information section').forEach(section => {
+        section.style.transition = 'none'
+    })
 }
 
 // Change the photos when click #next or #back
