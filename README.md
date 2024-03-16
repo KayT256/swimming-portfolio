@@ -2,4 +2,4 @@
 
 A simple website about my swimming journey
 
-Visit the page: [Swimming Portfolio](https://kayt256.github.io/simple-blog-page/)
+Visit the page: [Swimming Portfolio](https://kayt256.github.io/swimming-portfolio/)
